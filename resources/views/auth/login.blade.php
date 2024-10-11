@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="assets/admin/dist/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition login-page">
+<body class=" login-page">
     <div class="login-box">
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
@@ -81,7 +81,7 @@
                     <a href="#" class="btn btn-block btn-primary">
                         <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
                     </a>
-                    <a href="#" class="btn btn-block btn-danger">
+                    <a href="{{ route('social.login', ['service' => 'google'])}}" class="btn btn-block btn-danger">
                         <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
                     </a>
                 </div>

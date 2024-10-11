@@ -129,26 +129,26 @@ class PushMenu {
       return
     }
 
-    const $body = $('body')
-    const toggleState = localStorage.getItem(`remember${EVENT_KEY}`)
+    // const $body = $('body')
+    // const toggleState = localStorage.getItem(`remember${EVENT_KEY}`)
 
-    if (toggleState === CLASS_NAME_COLLAPSED) {
-      if (this._options.noTransitionAfterReload) {
-        $body.addClass('hold-transition').addClass(CLASS_NAME_COLLAPSED).delay(50).queue(function () {
-          $(this).removeClass('hold-transition')
-          $(this).dequeue()
-        })
-      } else {
-        $body.addClass(CLASS_NAME_COLLAPSED)
-      }
-    } else if (this._options.noTransitionAfterReload) {
-      $body.addClass('hold-transition').removeClass(CLASS_NAME_COLLAPSED).delay(50).queue(function () {
-        $(this).removeClass('hold-transition')
-        $(this).dequeue()
-      })
-    } else {
-      $body.removeClass(CLASS_NAME_COLLAPSED)
-    }
+    // if (toggleState === CLASS_NAME_COLLAPSED) {
+    //   if (this._options.noTransitionAfterReload) {
+    //     $body.addClass('hold-transition').addClass(CLASS_NAME_COLLAPSED).delay(50).queue(function () {
+    //       $(this).removeClass('hold-transition')
+    //       $(this).dequeue()
+    //     })
+    //   } else {
+    //     $body.addClass(CLASS_NAME_COLLAPSED)
+    //   }
+    // } else if (this._options.noTransitionAfterReload) {
+    //   $body.addClass('hold-transition').removeClass(CLASS_NAME_COLLAPSED).delay(50).queue(function () {
+    //     $(this).removeClass('hold-transition')
+    //     $(this).dequeue()
+    //   })
+    // } else {
+    //   $body.removeClass(CLASS_NAME_COLLAPSED)
+    // }
   }
 
   // Private

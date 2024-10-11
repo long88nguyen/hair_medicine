@@ -177,9 +177,9 @@ class Layout {
       this.fixLayoutHeight()
     })
 
-    setTimeout(() => {
-      $('body.hold-transition').removeClass('hold-transition')
-    }, 50)
+    // setTimeout(() => {
+    //   $('body.hold-transition').removeClass('hold-transition')
+    // }, 50)
 
     setTimeout(() => {
       const $preloader = $(SELECTOR_PRELOADER)

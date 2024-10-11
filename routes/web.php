@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +21,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', [AuthController::class, 'loginForm'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit')->middleware('guest');
 
-Route::middleware('auth')->group(function() {
+Route::get('/redirect-social/{service}', [AuthController::class,'redirectSocial'])->name('social.login');
+Route::get('/auth/callback/{service}', [AuthController::class,'callbackSocial']);
+
+Route::middleware('auth')->group(callback: function() {
     Route::get('/logout', [AuthController::class,'logout'])->name('logout');
     Route::get('/', function () {
         return view('admin.pages.dashboard');
     })->name('dashboard');
+
+
+    Route::resource('category', CategoryController::class);
+    Route::resource('product', ProductController::class);
 });

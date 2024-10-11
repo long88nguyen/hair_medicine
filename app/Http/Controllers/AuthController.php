@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
@@ -45,4 +47,44 @@ class AuthController extends Controller
         Auth::logout();
         return redirect()->route('login');
     }
+
+    public function redirectSocial($service)
+    {
+        return Socialite::driver($service)->redirect();
+    }
+
+    public function callbackSocial($service)
+    {
+        $userSocial = Socialite::driver($service)->user();
+
+        $user = User::where('provider', $service)
+            ->where('provider_id', $userSocial->id)
+            ->first();
+        if (!$user) {
+            $user = User::create([
+                'name' => $userSocial->name,
+                'email' => $userSocial->email,
+                'phone' => null,
+                'provider' => $service,
+                'provider_id' => $userSocial->id,
+                'avatar' => $userSocial->avatar,
+                'avatar_original' => $userSocial->avatar_original,
+                'token' => $userSocial->token,
+            ]);
+            Auth::login($user);
+        } else {
+            $user->update([
+                'name' => $userSocial->name,
+                'email' => $userSocial->email,
+                'avatar' => $userSocial->avatar,
+                'avatar_original' => $userSocial->avatar_original,
+                'token' => $userSocial->token,
+            ]);
+            Auth::login($user);
+        }
+
+        return redirect()->route('dashboard')->with('success', 'Đăng nhập thành công');
+    }
+
+    
 }
