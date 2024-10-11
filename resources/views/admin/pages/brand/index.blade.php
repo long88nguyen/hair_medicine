@@ -10,7 +10,7 @@
 @endpush
 
 @section('title')
-    Danh sách danh mục
+    Danh sách thương hiệu
 @endsection
 @section('content')
 @if (session('success'))
@@ -18,9 +18,9 @@
         {{ session('success') }}
     </div>
 @endif
-    <h5>Danh sách danh mục</h5>
+    <h5>Danh sách thương hiệu</h5>
     <div class="form-search">
-        <form action="{{ route('category.index') }}" method="get">
+        <form action="{{ route('brand.index') }}" method="get">
             <div class="row">
                 <div class="col-3">
                     <div class="form-group">
@@ -35,33 +35,31 @@
        
     </div>
     <div class="text-end">
-        <a href="{{ route('category.create') }}" class="btn btn-primary btn-sm m-1">+ Thêm mới danh mục</a>
+        <a href="{{ route('brand.create') }}" class="btn btn-primary btn-sm m-1">+ Thêm mới thương hiệu</a>
     </div>
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>STT</th>
-                <th>Tên danh mục</th>
+                <th>Tên thương hiệu</th>
                 <th>Ảnh</th>
-                <th>Mô tả</th>
                 <th>Thời gian tạo</th>
                 <th>Hành động</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($categories as $key => $category)
+            @foreach ($brands as $key => $brand)
                 <tr>
                     <td>{{ $key+1 }}</td>
-                    <td>{{ $category->name }}</td>
-                    <td><img src="{{ asset("storage/".$category->image ) }}" alt="" srcset="" width="100px"></td>
-                    <td>{{ $category->description }}</td>
-                    <td>{{ Carbon::parse($category->created_at)->format('H:i:s d/m/Y') }}</td>
+                    <td>{{ $brand->name }}</td>
+                    <td><img src="{{ asset("storage/".$brand->image ) }}" alt="" srcset="" width="100px"></td>
+                    <td>{{ Carbon::parse($brand->created_at)->format('H:i:s d/m/Y') }}</td>
                     <td>
-                        <a href="{{ route('category.edit', $category->id ) }}" class="btn btn-primary btn-sm m-1">Sửa</a>
-                        <form action="{{ route('category.destroy', $category->id) }}" method="POST">
+                        <a href="{{ route('brand.edit', $brand->id ) }}" class="btn btn-primary btn-sm m-1">Sửa</a>
+                        <form action="{{ route('brand.destroy', $brand->id) }}" method="POST">
                             @method('DELETE')
                             @csrf
-                            <button type="submit" class="btn btn-danger btn-sm m-1" onclick="return confirm('Are you sure you want to delete this category?')">Xóa</button>
+                            <button type="submit" class="btn btn-danger btn-sm m-1" onclick="return confirm('Are you sure you want to delete this brand?')">Xóa</button>
                         </form>
                     </td>
                 </tr>

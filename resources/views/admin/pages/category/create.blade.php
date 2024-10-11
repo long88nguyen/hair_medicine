@@ -56,7 +56,7 @@ Thêm mới danh mục
             <div class="form-group">
                 <label for="">Tags</label>
                 <input type="text" class="form-control" placeholder="Tags..." 
-                    name="tag" value="{{ old('tag') }}">
+                    name="tags" value="{{ old('tag') }}">
             </div>
 
             <div class="form-group">
