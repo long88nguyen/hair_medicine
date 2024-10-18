@@ -35,10 +35,12 @@ Chỉnh sửa thương hiệu
             </div>
             <div class="form-group">
                 <label for="">Ảnh</label>
-                <input type="file" name="image" id="image" accept="image/*" onchange="previewImage(event)"
-                    class="form-control">
                 <br>
-                <img id="image-preview" src="{{ asset('storage/'.$brand->image) }}" style="max-width: 300px; max-height: 300px; margin-top: 10px;" />
+                <label for="image" role="button" class = "btn border btn-sm"><i class="fa-solid fa-cloud-arrow-up text-primary me-1"></i>Tải ảnh lên</label>
+                <input type="file" name="image" id="image" accept="image/*" onchange="previewImage(event)"
+                    class="form-control" hidden>
+                <br>
+                <img id="image-preview" src="{{ asset('storage/'.$brand->image) }}" style="max-width: 300px; max-height: 300px; margin-top: 10px;" class="img-thumbnail"/>
                 <br>
             </div>
         </div>

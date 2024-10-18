@@ -50,11 +50,11 @@
         <tbody>
             @foreach ($brands as $key => $brand)
                 <tr>
-                    <td>{{ $key+1 }}</td>
-                    <td>{{ $brand->name }}</td>
-                    <td><img src="{{ asset("storage/".$brand->image ) }}" alt="" srcset="" width="100px"></td>
-                    <td>{{ Carbon::parse($brand->created_at)->format('H:i:s d/m/Y') }}</td>
-                    <td>
+                    <td class = "text-center align-middle">{{ $key+1 }}</td>
+                    <td class = "text-center align-middle">{{ $brand->name }}</td>
+                    <td class = "text-center align-middle"><img src="{{ asset("storage/".$brand->image ) }}" alt="" srcset="" width="100px" class = "img-thumbnail"></td>
+                    <td class = "text-center align-middle">{{ Carbon::parse($brand->created_at)->format('H:i:s d/m/Y') }}</td>
+                    <td class = "text-center align-middle">
                         <a href="{{ route('brand.edit', $brand->id ) }}" class="btn btn-primary btn-sm m-1">Sửa</a>
                         <form action="{{ route('brand.destroy', $brand->id) }}" method="POST">
                             @method('DELETE')
