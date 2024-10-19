@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MediaController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,4 +36,6 @@ Route::middleware('auth')->group(callback: function() {
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
     Route::resource('brand', BrandController::class);
+
+    Route::post('/upload/image', [MediaController::class, 'uploadImage'])->name('upload.image');
 });

@@ -469,7 +469,7 @@ var admin = {
                 'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
                 'save table directionality emoticons template paste autosave image'
             ],
-            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | preview fullpage | forecolor backcolor emoticons | openMediaPopupButton uploadImageButton uploadMediaButton embedYoutube restoredraft code image',
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | preview fullpage | forecolor backcolor emoticons | uploadImageButton embedYoutube restoredraft image',
             paste_data_images: true,
             autosave_ask_before_unload: false,
             autosave_restore_when_empty: false,
@@ -543,7 +543,7 @@ var admin = {
                                 var description = data.description;
                                 var youtubeVdieoID = admin.getYoutubeVideoID(url);
                                 if (youtubeVdieoID !== '') {
-                                    iframe = '<iframe class="mw-100" type="text/html" width="100%" height="450" src="https://www.youtube.com/embed/' + youtubeVdieoID + '?autoplay=1" frameborder="0"></iframe>';
+                                    iframe = '<iframe class="mw-100" type="text/html" width="500px" height="450" src="https://www.youtube.com/embed/' + youtubeVdieoID + '?autoplay=1" frameborder="0"></iframe>';
                                     var insertHTML = '';
                                     insertHTML += '<div class="text-center">';
                                     insertHTML += ' <figure class="d-inline-block text-center w-100">';

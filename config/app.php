@@ -195,8 +195,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-
-
     ],
 
     /*
@@ -218,4 +216,13 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ])->toArray(),
 
+    'dimensions' => [
+        'IMAGE_LARGE_WIDTH' => 764,
+        'IMAGE_LARGE_HEIGHT' => 400,
+        'IMAGE_MEDIUM_WIDTH' => 573,
+        'IMAGE_MEDIUM_HEIGHT' => 300,
+        'IMAGE_THUMBNAIL_WIDTH' => 200,
+        'IMAGE_THUMBNAIL_HEIGHT' => 200,
+    ],
 ];
+
