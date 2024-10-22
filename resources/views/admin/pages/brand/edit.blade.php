@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('admin.layout2')
 
 @push('header')
 
@@ -36,7 +36,7 @@ Chỉnh sửa thương hiệu
             <div class="form-group">
                 <label for="">Ảnh</label>
                 <br>
-                <label for="image" role="button" class = "btn border btn-sm"><i class="fa-solid fa-cloud-arrow-up text-primary me-1"></i>Tải ảnh lên</label>
+                <label for="image" role="button" class = "btn border"><i class="fa-solid fa-cloud-arrow-up text-primary me-1"></i>Tải ảnh lên</label>
                 <input type="file" name="image" id="image" accept="image/*" onchange="previewImage(event)"
                     class="form-control" hidden>
                 <br>
@@ -46,7 +46,7 @@ Chỉnh sửa thương hiệu
         </div>
     </div>
     <div class="text-end">
-        <button type="submit" class=" btn btn-primary btn-sm m-1">Lưu</button>
+        <button type="submit" class=" btn btn-primary m-1">Lưu</button>
         <a href="{{ route('brand.index') }}" class="btn border m-1">Quay lại</a>
     </div>
 </form>

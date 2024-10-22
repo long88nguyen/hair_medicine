@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('admin.layout2')
 
 @push('header')
 
@@ -29,14 +29,14 @@ Thêm mới thương hiệu
     <div class="row">
         <div class="col-12 col-md-6">
             <div class="form-group">
-                <label for="">Tên thương hiệu</label>
-                <input type="text" class="form-control" placeholder="Nhập tên thương hiệu..."
+                <b for="">Tên thương hiệu</b>
+                <input type="text" class="form-control mt-2" placeholder="Nhập tên thương hiệu..."
                      name="name" value="{{ old('name') }}">
             </div>
-            <div class="form-group">
-                <label for="">Ảnh</label>
+            <div class="form-group mt-2">
+                <b for="">Ảnh</b>
                 <br>
-                <label for="image" role="button" class = "btn border btn-sm"><i class="fa-solid fa-cloud-arrow-up text-primary me-1"></i>Tải ảnh lên</label>
+                <label for="image" role="button" class = "btn border mt-2"><i class="fa-solid fa-cloud-arrow-up text-primary me-1"></i>Tải ảnh lên</label>
                 <input type="file" name="image" id="image" accept="image/*" onchange="previewImage(event)"
                     class="form-control" hidden>
                 <br>
@@ -46,7 +46,7 @@ Thêm mới thương hiệu
         </div>
     </div>
     <div class="text-end">
-        <button type="submit" class=" btn btn-primary btn-sm m-1">Lưu</button>
+        <button type="submit" class=" btn btn-primary m-1">Lưu</button>
         <a href="{{ route('brand.index') }}" class="btn border m-1">Quay lại</a>
     </div>
 </form>

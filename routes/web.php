@@ -39,3 +39,7 @@ Route::middleware('auth')->group(callback: function() {
 
     Route::post('/upload/image', [MediaController::class, 'uploadImage'])->name('upload.image');
 });
+
+Route::get('/layout2' , function() {
+    return view('admin.layout2');
+});

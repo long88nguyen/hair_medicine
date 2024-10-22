@@ -3,7 +3,7 @@
 @endphp
 
 
-@extends('admin.layout')
+@extends('admin.layout2')
 
 @push('header')
 
@@ -28,14 +28,14 @@
                     </div>
                 </div>
                 <div class="col-3">
-                    <button type="submit" class="btn btn-primary btn-sm">Tìm kiếm</button>
+                    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
                 </div>
             </div>
         </form>
        
     </div>
     <div class="text-end">
-        <a href="{{ route('category.create') }}" class="btn btn-primary btn-sm m-1">+ Thêm mới danh mục</a>
+        <a href="{{ route('category.create') }}" class="btn btn-primary m-1">+ Thêm mới danh mục</a>
     </div>
     <table class="table table-bordered">
         <thead>
@@ -57,12 +57,14 @@
                     <td>{{ $category->description }}</td>
                     <td>{{ Carbon::parse($category->created_at)->format('H:i:s d/m/Y') }}</td>
                     <td>
-                        <a href="{{ route('category.edit', $category->id ) }}" class="btn btn-primary btn-sm m-1">Sửa</a>
-                        <form action="{{ route('category.destroy', $category->id) }}" method="POST">
-                            @method('DELETE')
-                            @csrf
-                            <button type="submit" class="btn btn-danger btn-sm m-1" onclick="return confirm('Are you sure you want to delete this category?')">Xóa</button>
-                        </form>
+                        <div class="d-flex">
+                            <a href="{{ route('category.edit', $category->id ) }}" class="btn btn-primary m-1">Sửa</a>
+                            <form action="{{ route('category.destroy', $category->id) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-danger m-1" onclick="return confirm('Are you sure you want to delete this category?')">Xóa</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
             @endforeach

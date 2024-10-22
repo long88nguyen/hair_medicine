@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('admin.layout2')
 
 @push('header')
 
@@ -85,7 +85,7 @@ Chỉnh sửa danh mục
         </div>
     </div>
     <div class="text-end">
-        <button type="submit" class=" btn btn-primary btn-sm m-1">Lưu</button>
+        <button type="submit" class=" btn btn-primary m-1">Lưu</button>
         <a href="{{ route('category.index') }}" class="btn border m-1">Quay lại</a>
     </div>
 </form>

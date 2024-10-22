@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('admin.layout2')
 
 @push('header')
 @endpush
@@ -23,30 +23,35 @@
         </div>
     @endif
     <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
+        <div class="text-end">
+            <a href="{{ route('category.index') }}" class="btn border m-1">Quay lại</a>
+            <button type="submit" class=" btn btn-primary m-1">Lưu</button>
+
+        </div>
         @method('POST')
         @csrf
         <div class="row">
             <div class="col-12 col-md-6">
-                <div class="form-group">
-                    <label for="">Tên sản phẩm</label>
-                    <input type="text" class="form-control" placeholder="Nhập tên sản phẩm..." id="title"
+                <div class="form-group mt-2">
+                    <b for="">Tên sản phẩm</b>
+                    <input type="text" class="form-control"  id="title"
                         onkeyup="ChangeToSlug();" name="name" value="{{ old('name') }}">
                 </div>
-                <div class="form-group">
-                    <label for="">Slug</label>
-                    <input type="text" class="form-control" placeholder="Slug..." id="slug" name="slug"
+                <div class="form-group mt-2">
+                    <b for="">Slug</b>
+                    <input type="text" class="form-control"  id="slug" name="slug"
                         value="{{ old('slug') }}">
                 </div>
                 <div class="form-group mt-2">
-                    <label for="">Mô tả</label>
-                    <textarea id="" class="form-control" placeholder="Nhập mô tả..." name="description"
+                    <b for="">Mô tả</b>
+                    <textarea id="" class="form-control"  name="description"
                         value="{{ old('description') }}"></textarea>
                 </div>
 
                 <div class="row">
                     <div class="col-12 col-md-6">
                         <div class="form-group mt-2">
-                            <label for="">Danh mục</label>
+                            <b for="">Danh mục</b>
                             <select name="category_id" id="" class="form-control"
                                 value = "{{ old('category_id') }}">
                                 <option value="">-- Chọn danh mục --</option>
@@ -58,7 +63,7 @@
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="form-group mt-2">
-                            <label for="">Thương hiệu</label>
+                            <b for="">Thương hiệu</b>
                             <select name="brand_id" id="" class="form-control" value = "{{ old('brand_id') }}">
                                 <option value="">-- Chọn thương hiệu --</option>
                                 @foreach ($brands as $brand)
@@ -68,22 +73,22 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-12">
-                        <div class="form-group">
-                            <label for="">Gía sản phẩm</label>
+                        <div class="form-group mt-2">
+                            <b for="">Gía sản phẩm</b>
                             <input type="number" class="form-control" name="price" value="{{ old('price') }}">
                         </div>
                     </div>
 
                     <div class="col-md-6 col-12">
-                        <div class="form-group">
-                            <label for="">Số lượng sản phẩm</label>
+                        <div class="form-group mt-2">
+                            <b for="">Số lượng sản phẩm</b>
                             <input type="number" class="form-control" name="quantity" value="{{ old('quantity') }}">
                         </div>
                     </div>
 
                     <div class="col-md-6 col-12">
-                        <div class="form-group">
-                            <label for="">Discount (%)</label>
+                        <div class="form-group mt-2">
+                            <b for="">Discount (%)</b>
                             <input type="number" class="form-control" name="discount" value="{{ old('discount') }}"
                                 min="0" max="100">
                         </div>
@@ -92,8 +97,8 @@
 
 
 
-                <!-- <div class="form-group">
-                    <label for="">Ảnh</label>
+                <!-- <div class="form-group mt-2">
+                    <b for="">Ảnh</b>
                     <input type="file" name="image" id="image" accept="image/*" onchange="previewImage(event)"
                         class="form-control">
                     <br>
@@ -102,51 +107,47 @@
                 </div> -->
             </div>
             <div class="col-6 col-md-6">
-                <div class="form-group">
-                    <label for="">Tags</label>
-                    <input type="text" class="form-control" placeholder="Tags..." name="tags"
+                <div class="form-group mt-2">
+                    <b for="">Tags</b>
+                    <input type="text" class="form-control"  name="tags"
                         value="{{ old('tag') }}">
                 </div>
 
-                <div class="form-group">
-                    <label for="">Meta Title</label>
-                    <input type="text" class="form-control" placeholder="Meta Title..." name="meta_title"
+                <div class="form-group mt-2">
+                    <b for="">Meta Title</b>
+                    <input type="text" class="form-control"  name="meta_title"
                         value="{{ old('meta_title') }}">
                 </div>
 
-                <div class="form-group">
-                    <label for="">Meta keywords</label>
-                    <input type="text" class="form-control" placeholder="Meta keywords..." name="meta_keywords"
+                <div class="form-group mt-2">
+                    <b for="">Meta keywords</b>
+                    <input type="text" class="form-control"  name="meta_keywords"
                         value="{{ old('meta_keywords') }}">
                 </div>
 
-                <div class="form-group">
-                    <label for="">Meta description</label>
-                    <textarea id="" class="form-control" placeholder="Nhập mô tả..." name="meta_description"
+                <div class="form-group mt-2">
+                    <b for="">Meta description</b>
+                    <textarea id="" class="form-control"  name="meta_description"
                         value="{{ old('meta_description') }}"></textarea>
                 </div>
 
-                <div class="form-group">
-                    <label for="">Canonical Url</label>
-                    <input type="text" class="form-control" placeholder="Canonical Url..." name="canonical_url"
+                <div class="form-group mt-2">
+                    <b for="">Canonical Url</b>
+                    <input type="text" class="form-control" name="canonical_url"
                         value="{{ old('canonical_url') }}">
                 </div>
-                <div class="form-group">
-                    <label for="">Ảnh sản phẩm</label>
+                <div class="form-group mt-2">
+                    <b for="">Ảnh sản phẩm</b>
+                    <input type="file" name="images[]" multiple class="form-control" />
                 </div>
             </div>
         </div>
-        <div class="">
-            <label for="">Chi tiết sản phẩm</label>
-
-            <label class="control-label font-weight-bold" for="tinymce-content">Chi tiết sản phẩm</label>
+        <div class="form-group mt-2">
+            <b for="">Chi tiết sản phẩm</b>
             <textarea id="tinymce-content" class="form-control form-control-sm tinymce-selector" name="content" rows="6"
                 aria-hidden="true"></textarea>
         </div>
-        <div class="text-end">
-            <button type="submit" class=" btn btn-primary btn-sm m-1">Lưu</button>
-            <a href="{{ route('category.index') }}" class="btn border m-1">Quay lại</a>
-        </div>
+        
     </form>
 @endsection
 

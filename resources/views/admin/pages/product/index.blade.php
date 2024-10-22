@@ -1,6 +1,6 @@
 
 
-@extends('admin.layout')
+@extends('admin.layout2')
 
 @push('header')
 
@@ -17,6 +17,6 @@
 @endif
     <h5>Danh sách sản phẩm</h5>
     <div class="text-end">
-        <a href="{{ route('product.create') }}" class="btn btn-primary btn-sm m-1">+ Thêm mới sản phẩm</a>
+        <a href="{{ route('product.create') }}" class="btn btn-primary m-1">+ Thêm mới sản phẩm</a>
     </div>
 @endsection

@@ -3,7 +3,7 @@
 @endphp
 
 
-@extends('admin.layout')
+@extends('admin.layout2')
 
 @push('header')
 
@@ -28,14 +28,14 @@
                     </div>
                 </div>
                 <div class="col-3">
-                    <button type="submit" class="btn btn-primary btn-sm">Tìm kiếm</button>
+                    <button type="submit" class="btn btn-primary ">Tìm kiếm</button>
                 </div>
             </div>
         </form>
        
     </div>
     <div class="text-end">
-        <a href="{{ route('brand.create') }}" class="btn btn-primary btn-sm m-1">+ Thêm mới thương hiệu</a>
+        <a href="{{ route('brand.create') }}" class="btn btn-primary  m-1">+ Thêm mới thương hiệu</a>
     </div>
     <table class="table table-bordered">
         <thead>
@@ -55,11 +55,11 @@
                     <td class = "text-center align-middle"><img src="{{ asset("storage/".$brand->image ) }}" alt="" srcset="" width="100px" class = "img-thumbnail"></td>
                     <td class = "text-center align-middle">{{ Carbon::parse($brand->created_at)->format('H:i:s d/m/Y') }}</td>
                     <td class = "text-center align-middle">
-                        <a href="{{ route('brand.edit', $brand->id ) }}" class="btn btn-primary btn-sm m-1">Sửa</a>
+                        <a href="{{ route('brand.edit', $brand->id ) }}" class="btn btn-primary  m-1">Sửa</a>
                         <form action="{{ route('brand.destroy', $brand->id) }}" method="POST">
                             @method('DELETE')
                             @csrf
-                            <button type="submit" class="btn btn-danger btn-sm m-1" onclick="return confirm('Are you sure you want to delete this brand?')">Xóa</button>
+                            <button type="submit" class="btn btn-danger  m-1" onclick="return confirm('Are you sure you want to delete this brand?')">Xóa</button>
                         </form>
                     </td>
                 </tr>

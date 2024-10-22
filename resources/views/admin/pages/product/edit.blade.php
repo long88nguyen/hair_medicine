@@ -1,5 +1,5 @@
 
-@extends('admin.layout')
+@extends('admin.layout2')
 
 @push('header')
 
