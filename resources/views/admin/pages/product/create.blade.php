@@ -11,6 +11,10 @@
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
+    @elseif (session('success'))
+        <div class="alert alert-danger">
+            Đã xảy ra lỗi!
+        </div>
     @endif
     <h5>Thêm mới sản phẩm</h5>
     @if ($errors->any())
@@ -24,9 +28,8 @@
     @endif
     <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
         <div class="text-end">
-            <a href="{{ route('category.index') }}" class="btn border m-1">Quay lại</a>
+            <a href="{{ route('product.index') }}" class="btn border m-1">Quay lại</a>
             <button type="submit" class=" btn btn-primary m-1">Lưu</button>
-
         </div>
         @method('POST')
         @csrf
@@ -45,7 +48,7 @@
                 <div class="form-group mt-2">
                     <b for="">Mô tả</b>
                     <textarea id="" class="form-control"  name="description"
-                        value="{{ old('description') }}"></textarea>
+                        value="">{{ old('description') }}</textarea>
                 </div>
 
                 <div class="row">
@@ -128,7 +131,7 @@
                 <div class="form-group mt-2">
                     <b for="">Meta description</b>
                     <textarea id="" class="form-control"  name="meta_description"
-                        value="{{ old('meta_description') }}"></textarea>
+                        value="">{{ old('meta_description') }}</textarea>
                 </div>
 
                 <div class="form-group mt-2">
@@ -138,14 +141,14 @@
                 </div>
                 <div class="form-group mt-2">
                     <b for="">Ảnh sản phẩm</b>
-                    <input type="file" name="images[]" multiple class="form-control" />
+                    <input type="file" name="images[]" multiple class="form-control" value="{{ old('images[]') }}"/>
                 </div>
             </div>
         </div>
         <div class="form-group mt-2">
             <b for="">Chi tiết sản phẩm</b>
             <textarea id="tinymce-content" class="form-control form-control-sm tinymce-selector" name="content" rows="6"
-                aria-hidden="true"></textarea>
+                aria-hidden="true" value = "">{{ old('content') }}</textarea>
         </div>
         
     </form>
